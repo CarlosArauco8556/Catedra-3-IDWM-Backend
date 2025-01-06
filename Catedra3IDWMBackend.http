@@ -1,0 +1,6 @@
+@Catedra3IDWMBackend_HostAddress = http://localhost:5174
+
+GET {{Catedra3IDWMBackend_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
