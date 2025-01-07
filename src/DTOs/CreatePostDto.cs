@@ -12,6 +12,6 @@ namespace Catedra3IDWMBackend.src.DTOs
         public DateTime PublicationDate { get; set; } = DateTime.Now;
 
         [Required]
-        public IFormFile ImageUrl { get; set; } = null!;
+        public IFormFile Image { get; set; } = null!;
     }
 }
