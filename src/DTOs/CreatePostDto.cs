@@ -5,7 +5,7 @@ namespace Catedra3IDWMBackend.src.DTOs
     public class CreatePostDto
     {
         [Required]
-        [MinLength(5)]
+        [MinLength(5, ErrorMessage = "El titulo del post debe tener al menos 5 caracteres.")]
         public string Title { get; set; } = null!;
 
         [Required]

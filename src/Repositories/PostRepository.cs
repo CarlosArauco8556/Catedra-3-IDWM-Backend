@@ -22,7 +22,7 @@ namespace Catedra3IDWMBackend.src.Repositories
         {
             if (post == null || imageUploadResult == null)
             {
-                throw new ArgumentNullException("El post o la imagen no pueden ser nulos");
+                throw new ArgumentException("El post o la imagen no pueden ser nulos");
             }
 
             post.ImageUrl = imageUploadResult.SecureUrl.AbsoluteUri;
@@ -41,11 +41,6 @@ namespace Catedra3IDWMBackend.src.Repositories
             {
                 posts = posts.Where(p => p.Title.ToUpper().Contains(query.TextFilter.ToUpper()) || 
                                          p.PublicationDate.ToString().Contains(query.TextFilter));
-
-                if(posts.Any())
-                {
-                    throw new ArgumentNullException("No se encontraron posts");
-                }
             }
 
             if(query.IsDescendingDate)
@@ -55,6 +50,11 @@ namespace Catedra3IDWMBackend.src.Repositories
             else
             {
                 posts = posts.OrderBy(p => p.PublicationDate);
+            }
+
+            if(!posts.Any())
+            {
+                throw new ArgumentException("No se encontraron posts");
             }
 
             var skipNumber = (query.PageNumber - 1) * query.PageSize;

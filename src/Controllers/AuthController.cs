@@ -36,6 +36,7 @@ namespace Catedra3IDWMBackend.src.Controllers
 
                 var user = new User
                 {
+                    UserName = registerDto.Email,
                     Email = registerDto.Email,
                 };
                 
@@ -81,6 +82,7 @@ namespace Catedra3IDWMBackend.src.Controllers
                 return Ok(
                     new NewUserDto
                     {
+                        UserName = user.UserName!,
                         Email = user.Email!,
                         Token = token
                     }

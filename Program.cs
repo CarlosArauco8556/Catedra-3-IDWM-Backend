@@ -8,6 +8,7 @@ using Catedra3IDWMBackend.src.Services;
 using CloudinaryDotNet;
 using DotNetEnv;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
@@ -48,7 +49,7 @@ builder.Services.AddScoped<IPost, PostRepository>();
 
 builder.Services.AddHttpContextAccessor();
 
-builder.Services.AddIdentityCore<User>(
+builder.Services.AddIdentity<User, IdentityRole>(
     opt => {
         opt.Password.RequireDigit = false;
         opt.Password.RequireLowercase = false;
