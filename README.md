@@ -7,16 +7,11 @@ El objetivo de este documento es proporcionar una guía clara y precisa para des
 
 Antes de comenzar, asegúrate de cumplir con los siguientes requisitos:
 
-**1. Git:** Herramienta para clonar repositorios. [Descargar git](https://git-scm.com/downloads "Descargar git")
+**1.- Git:** Herramienta para clonar repositorios. [Descargar git](https://git-scm.com/downloads "Descargar git")
 
-**2. Node.js y npm:** Node.js (versión mínima 18) y npm deben estar instalados. [Descargar Node.js.](https://nodejs.org/en "Descargar Node.js.")
+**2.- .NET SDK:** Instala el SDK de .NET 8.0 o una versión superior para ejecutar el backend. [Descargar .NET SDK](https://dotnet.microsoft.com/en-us/download/dotnet/8.0 "Descargar .NET SDK")
 
-**3. Angular CLI:** Asegúrate de tener instalada la CLI de Angular (versión mínima 16).
-
-````
-npm install -g @angular/cli
-````
-**4. Visual Studio Code:** Recomendado para trabajar con el código. [Descargar VSCode](https://code.visualstudio.com/ "Descargar VSCode")
+**3.- Visual Studio Code:** Recomendado para trabajar con el código. [Descargar VSCode](https://code.visualstudio.com/ "Descargar VSCode")
 
 
 ## Clonar el repositorio
@@ -125,5 +120,3 @@ Finalmente para ejecutar la aplicacion, debes ingresar el siguiente comando en l
 ````
 dotnet run
 ````
-
-Una vez iniciado el servidor, abre tu navegador y navega a http://localhost:4200.
