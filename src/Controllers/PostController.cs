@@ -4,12 +4,14 @@ using Catedra3IDWMBackend.src.Interfaces;
 using Catedra3IDWMBackend.src.Mappers;
 using CloudinaryDotNet;
 using CloudinaryDotNet.Actions;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Catedra3IDWMBackend.src.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [Authorize]
     public class PostController : ControllerBase
     {
         private readonly IPost _postRepository;
