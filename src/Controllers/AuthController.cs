@@ -67,10 +67,10 @@ namespace Catedra3IDWMBackend.src.Controllers
                 if(!ModelState.IsValid) return BadRequest(ModelState);
 
                 var user = await _userManager.Users.FirstOrDefaultAsync(u => u.Email == loginDto.Email);
-                if(user == null) return Unauthorized( new { message = "Correo o contraseña incorrectos."});
+                if(user == null) return Unauthorized( new { message = "Credenciales inválidas"});
 
                 var result = await _signInManager.CheckPasswordSignInAsync(user, loginDto.Password, false);
-                if(!result.Succeeded) return Unauthorized( new { message = "Correo o contraseña incorrectos."});
+                if(!result.Succeeded) return Unauthorized( new { message = "Credenciales inválidas"});
 
                 await _signInManager.SignInAsync(user, isPersistent: true);
 
