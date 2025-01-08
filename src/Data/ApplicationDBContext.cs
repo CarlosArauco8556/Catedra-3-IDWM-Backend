@@ -1,4 +1,5 @@
 using Catedra3IDWMBackend.src.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
@@ -16,6 +17,13 @@ namespace Catedra3IDWMBackend.src.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+
+            List<IdentityRole> roles = new List<IdentityRole>
+            {
+                new IdentityRole { Name = "User", NormalizedName = "USER" }
+            };
+
+            modelBuilder.Entity<IdentityRole>().HasData(roles);
 
             modelBuilder.Entity<Post>()
                 .HasOne(p => p.User)

@@ -44,7 +44,16 @@ namespace Catedra3IDWMBackend.src.Controllers
 
                 if (createUser.Succeeded)
                 {
-                    return Ok(new { user = user.Email!});
+                    var roleResult = await _userManager.AddToRoleAsync(user, "User");
+                    
+                    if (roleResult.Succeeded)
+                    {
+                        return Ok(new { user = user.Email!});
+                    }
+                    else
+                    {
+                        return StatusCode(500, new { message = roleResult.Errors});
+                    }
                 }
                 else{
                     return StatusCode(500, new { message = createUser.Errors});

@@ -11,7 +11,7 @@ namespace Catedra3IDWMBackend.src.Middleware
             _next = next;
         }
 
-                public async Task InvokeAsync(HttpContext context)
+        public async Task InvokeAsync(HttpContext context)
         {
             var tokenService = context.RequestServices.GetService<ITokenService>();
 

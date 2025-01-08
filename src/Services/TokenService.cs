@@ -35,6 +35,13 @@ namespace Catedra3IDWMBackend.src.Services
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()) 
             };
 
+            var userRoles = _userManager.GetRolesAsync(user);
+
+            foreach (var role in userRoles.Result)
+            {
+                claims.Add(new Claim(ClaimTypes.Role, role));
+            }
+
             var creds = new SigningCredentials(_key, SecurityAlgorithms.HmacSha512Signature);
             
             var issuer = Environment.GetEnvironmentVariable("JWT_ISSUER") ?? throw new ArgumentNullException("JWT Issuer no puede ser nula o vacia");;
